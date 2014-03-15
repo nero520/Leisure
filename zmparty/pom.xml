@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.leisure</groupId>
+  <artifactId>zmparty</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>zmparty</name>
+  <url>http://maven.apache.org</url>
+  <build>
+    <finalName>zmparty</finalName>
+  </build>
+  
+  <dependencies>
+  <!-- Junit4 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- TestNG -->
+    
+    <!-- Dbunit -->
+    
+   <!-- checkstyle -->
+   
+   <!-- findbugs -->
+   
+   <!-- pmd -->
+    
+  <!-- springmvc -->
+  
+  <!-- mybatis   -->
+  
+  <!-- log4j -->
+  
+  <!--  mail -->
+  
+  <!--  quartz-->
+  
+  <!-- ehcache -->
+  
+  <!-- solr -->
+  
+  <!-- lucene -->
+  
+  <!-- security -->
+  
+  <!-- velocity -->
+  
+  <!-- urlwriting -->
+  
+  <!-- poi -->
+  
+  <!-- freemarker -->
+  
+  <!-- fileupload -->
+  
+  <!-- mysql -->
+  
+  <!-- planetj compress -->
+  
+  </dependencies>
+</project>
