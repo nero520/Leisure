@@ -1,70 +1,95 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.leisure</groupId>
-  <artifactId>zmparty</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>zmparty</name>
-  <url>http://maven.apache.org</url>
-  <properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.leisure</groupId>
+	<artifactId>zmparty</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>zmparty</name>
+	<url>http://maven.apache.org</url>
+	<!-- 开发人员信息 -->
+    <developers>
+        <developer>
+            <name>xiaoxiong</name>
+            <email>1227372602@qq.com</email>
+            <url>https://github.com/nero520</url>
+            <roles>
+                <role>software engineer</role>
+            </roles>
+            <timezone>8</timezone>
+        </developer>
+    </developers>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.framework.version>3.1.2.RELEASE</spring.framework.version> 
-  </properties>
-  <build>
-    <finalName>zmparty</finalName>
-    <pluginManagement>
-    <plugins>
-            <!-- comiler-plugin -->
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-			<!-- test - plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.7.2</version>
-				<configuration>
-					<parallel>methods</parallel>
-					<threadCount>10</threadCount>
-					<argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
-				</configuration>
-			</plugin>
-			<!-- report-plugin -->		
-           <plugin>
-	            <groupId>org.codehaus.mojo</groupId>
-	            <artifactId>cobertura-maven-plugin</artifactId>
-	            <version>2.5.2</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<formats>
-						<format>html</format>
-						<format>xml</format>
-					</formats>
-				</configuration>
-          </plugin>	
-          <!--  checkstyle-plugin -->
-	      <plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-checkstyle-plugin</artifactId>
-	            <version>2.3</version>              
-	      </plugin> 
-	      <!--  findbugs-plugin -->
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>findbugs-maven-plugin</artifactId>
-            <version>2.0.1</version>         
-         </plugin> 
-      
-	</plugins>
-	</pluginManagement>
-  </build>
-  
-  <reporting>
+		<spring.framework.version>3.1.2.RELEASE</spring.framework.version>
+		<druid.version>0.2.23</druid.version>
+	</properties>
+	<build>
+		<finalName>zmparty</finalName>
+		<pluginManagement>
+			<plugins>
+			    <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <locales>zh_CN</locales>
+                    <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+                    <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+                </configuration>
+                </plugin>
+				<!--begin comiler-plugin -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<!-- end comiler-plugin -->
+				<!-- begin surefire-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.7.2</version>
+					<configuration>
+						<parallel>methods</parallel>
+						<threadCount>10</threadCount>
+						<argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+					</configuration>
+				</plugin>
+				<!-- end surefire-plugin -->
+				<!--begin report-plugin -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>cobertura-maven-plugin</artifactId>
+					<version>2.5.2</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<formats>
+							<format>html</format>
+							<format>xml</format>
+						</formats>
+					</configuration>
+				</plugin>
+				<!-- end report-plugin -->
+				<!-- begin checkstyle-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.3</version>
+				</plugin>
+				<!-- end checkstyle-plugin -->
+				<!-- begin findbugs-plugin -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>findbugs-maven-plugin</artifactId>
+					<version>2.0.1</version>
+				</plugin>
+				<!-- end findbugs-plugin -->
+			</plugins>
+		</pluginManagement>
+	</build>
+	<reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -88,79 +113,303 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.3</version>        
+				<version>2.3</version>
 				<configuration>
 					<configLocation>src/main/resources/checkstyle/checkstyle.xml</configLocation>
 				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
-   
-  <dependencies>
-  <!-- Junit4 -->
-	    <dependency>
-	      <groupId>junit</groupId>
-	      <artifactId>junit</artifactId>
-	      <version>4.10</version>
-	      <scope>test</scope>
-	    </dependency>
-    
-    <!-- HttpUnit -->
-    
-    <!-- TestNG -->
-    
-    <!-- Dbunit -->
-    
-   <!-- checkstyle -->
-   
-   <!-- findbugs -->
-   
-   <!-- pmd -->
-   
-   <!-- Cobertura  -->
-    
-  <!-- springmvc -->
-  
-  <!-- mybatis   -->
-	    <dependency>
+
+    <repositories>
+       <repository>
+            <id>test</id>
+            <name>test</name>
+            <url>http://10.7.4.235:8081/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>oschina Releases</id>
+            <name>oschina Releases</name>
+            <url>http://maven.oschina.net/content/groups/public</url>
+        </repository>
+
+        <repository>
+            <id>apache-repo</id>
+            <name>apache Repository</name>
+            <url>https://repository.apache.org/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>java-repo</id>
+            <name>java Repository</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+        <repository>
+            <id>springsource-repo</id>
+            <name>SpringSource Repository</name>
+            <url>http://repo.spring.io/release/</url>
+        </repository>
+        <repository>
+            <id>springsource-repo-snapshot</id>
+            <name>SpringSource Repository</name>
+            <url>http://repo.spring.io/snapshot/</url>
+        </repository>
+        <repository>
+            <id>cloudhopper</id>
+            <name>Repository for Cloudhopper</name>
+            <url>http://maven.cloudhopper.com/repos/third-party/</url>
+        </repository>
+        <repository>
+            <id>jboss-repo-releases</id>
+            <name>Jboss Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>maven-repo1</id>
+            <name>maven-repo1</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>sourceforge-releases</id>
+            <name>Sourceforge Releases</name>
+            <url>https://oss.sonatype.org/content/repositories/sourceforge-releases</url>
+        </repository>
+
+    </repositories>
+    <pluginRepositories>
+
+        <pluginRepository>
+            <id>oschina Releases</id>
+            <name>oschina Releases</name>
+            <url>http://maven.oschina.net/content/groups/public</url>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>maven2-repo</id>
+            <name>maven2 Repository</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>Codehaus repository</id>
+            <url>http://repository.codehaus.org/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven-db-plugin-repo</id>
+            <name>maven db plugin repository</name>
+            <url>https://maven-db-plugin.googlecode.com/svn/maven/repo</url>
+            <layout>default</layout>
+        </pluginRepository>
+
+    </pluginRepositories>
+
+	<dependencies>
+		<!--begin Junit4 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- end Junit4 -->
+		<!-- HttpUnit -->
+
+		<!-- TestNG -->
+
+		<!-- Dbunit -->
+
+		<!-- checkstyle -->
+
+		<!-- findbugs -->
+
+		<!-- pmd -->
+
+		<!-- Cobertura -->
+		<!-- begin common-->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+        <dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+                
+		<!-- end common  -->
+		<!-- begin spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.8</version>
+		</dependency>
+		<!-- begin security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>2.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core-tiger</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<!-- end security -->
+		<!-- end spring -->
+		<!-- begin jsoup -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<!-- end jsoup -->
+		<!-- begin mybatis -->
+		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.1.1</version>
 		</dependency>
-  <!-- code generator -->	
-		    
-  <!-- log4j -->
-  
-  <!--  mail -->
-  
-  <!--  quartz-->
-  
-  <!-- ehcache -->
-  
-  <!-- solr -->
-  
-  <!-- lucene -->
-  
-  <!-- security -->
-  
-  <!-- velocity -->
-  
-  <!-- urlwriting -->
-  
-  <!-- poi -->
-  
-  <!-- freemarker -->
-  
-  <!-- fileupload -->
-  
-  <!-- mysql -->
-         <dependency>
+		<!-- end mybatis -->
+		<!-- begin hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+
+		<!-- end hibernate -->
+		<!-- begin log4g -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- end log4j -->
+		<!-- begin data source -->
+		 <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <!-- end data source -->
+		<!-- barcode4j -->
+
+		<!-- mail -->
+
+		<!-- quartz -->
+
+		<!--begin ehcache -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.5.1</version>
+		</dependency>
+		<!-- end ehcache -->
+		<!-- solr -->
+
+		<!-- lucene -->
+
+		<!-- begin jpa -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<!-- end jpa -->
+
+
+		<!-- begin velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<!-- end velocity -->
+		<!-- urlwriting -->
+
+		<!-- poi -->
+
+		<!-- freemarker -->
+
+		<!-- fileupload -->
+
+		<!--begin mysql -->
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.21</version>
 		</dependency>
-  
-  <!-- planetj compress -->
-  
-  </dependencies>
+		<!-- end mysql -->
+		<!-- begin servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- end servlet -->
+		<!-- planetj compress -->
+
+	</dependencies>
 </project>
