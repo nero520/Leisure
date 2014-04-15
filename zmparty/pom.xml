@@ -4,7 +4,7 @@
 	<groupId>com.leisure</groupId>
 	<artifactId>zmparty</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>zmparty</name>
 	<url>http://maven.apache.org</url>
 	<!-- 开发人员信息 -->
@@ -23,6 +23,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.framework.version>3.1.2.RELEASE</spring.framework.version>
 		<druid.version>0.2.23</druid.version>
+		<app.version>1.0</app.version>
+		<checkstyle.config.location>src/main/resources/checkstyle/checkstyle.xml</checkstyle.config.location>  
 	</properties>
 	<build>
 		<finalName>zmparty</finalName>
@@ -38,16 +40,18 @@
                 </configuration>
                 </plugin>
 				<!--begin comiler-plugin -->
-				<plugin>
+				 <plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.1</version>
 					<configuration>
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
+				
 				<!-- end comiler-plugin -->
+			
 				<!-- begin surefire-plugin -->
-				<plugin>
+				  <plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.7.2</version>
@@ -57,6 +61,7 @@
 						<argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
 					</configuration>
 				</plugin>
+				
 				<!-- end surefire-plugin -->
 				<!--begin report-plugin -->
 				<plugin>
@@ -86,6 +91,27 @@
 					<version>2.0.1</version>
 				</plugin>
 				<!-- end findbugs-plugin -->
+				<!-- begin assembly -->
+				<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.4</version>
+		        <configuration>
+		          <descriptors>
+		            <descriptor>src/main/resources/assembly/assembly.xml</descriptor>
+		          </descriptors>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <id>make-assembly</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>single</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      <!-- end assembly -->
 			</plugins>
 		</pluginManagement>
 	</build>

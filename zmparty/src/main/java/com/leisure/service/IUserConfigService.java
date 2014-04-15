@@ -1,4 +1,4 @@
-﻿package com.leisure.service;
+package com.leisure.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -75,4 +75,4 @@ public interface IUserConfigService {
 	 */
 	UserConfig getUserConfig();
 
-}
+}
