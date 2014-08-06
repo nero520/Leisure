@@ -148,11 +148,12 @@
 	</reporting>
 
     <repositories>
-       <repository>
+       <!--  <repository>
             <id>test</id>
             <name>test</name>
             <url>http://10.7.4.235:8081/nexus/content/groups/public</url>
         </repository>
+        -->
         <repository>
             <id>oschina Releases</id>
             <name>oschina Releases</name>
