@@ -153,7 +153,7 @@
 
 	<repositories>
 		<repository>
-			<id>zmpartyrepository</id>
+			<id>zmparty_repository</id>
 			<url>http://182.92.69.182:8081/nexus/content/groups/public/</url>
 		</repository>
 		<repository>
@@ -239,11 +239,11 @@
 	
 	<distributionManagement>
 		<repository>
-			<id>releases</id>
+			<id>zmparty_releases</id>
 			<url>http://182.92.69.182:8081/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>snapshots</id>
+			<id>zmparty_snapshots</id>
 			<url>http://182.92.69.182:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
